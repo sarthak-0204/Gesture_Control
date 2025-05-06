@@ -3,7 +3,7 @@ import mediapipe as mp
 import requests
 import time
 
-ESP32_IP = "http://192.168.4.1"  # Replace with your ESP32 AP IP
+ESP32_IP = "http://000.000.000.000"  # Replace with your ESP32 AP IP
 
 # MediaPipe setup
 mpHands = mp.solutions.hands
@@ -60,11 +60,11 @@ while True:
 
                 if finger_state == [False, False, False, False, False]:  # Fist
                     command = "stop"
-                if finger_state == [True, True, True, True, True, True]:
+                if finger_state == [True, True, True, True, True, True]: # Open palm
                     command = "stop"
-                elif finger_state == [False, True, False, False, False]:  # One finger
+                elif finger_state == [False, True, False, False, False]:  # Index finger
                     command = "forward"
-                elif finger_state == [False, False, True, False, False]:  # Two fingers
+                elif finger_state == [False, False, True, False, False]:  # Middle finger
                     command = "backward"
                 elif finger_state == [False, True, False, False, True]:  # Pinky + Index
                     command = "left"
